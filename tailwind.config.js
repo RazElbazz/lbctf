@@ -3,6 +3,9 @@ export default {
   purge: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   content: [],
   theme: {
+    fontFamily: {
+      'serif': ["Ringside Regular SSm A", "Ringside Regular SSm B", "system-ui", "sans-serif"],
+    },
     extend: {},
   },
   plugins: [],
