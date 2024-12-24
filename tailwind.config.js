@@ -6,7 +6,12 @@ export default {
     fontFamily: {
       'serif': ["Ringside Regular SSm A", "Ringside Regular SSm B", "system-ui", "sans-serif"],
     },
-    extend: {},
+    extend: {
+      colors:
+      {
+        'primary': '#212121',
+      },
+    },
   },
   plugins: [],
 }
