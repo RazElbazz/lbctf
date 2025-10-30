@@ -7,7 +7,7 @@ from app.crud.user import create_user, get_user_by_username, authenticate_user
 
 router = APIRouter(prefix="/users", tags=["users"])
 
-@router.post("", response_model=UserPublic, status_code=status.HTTP_201_CREATED)
+@router.post("/register", response_model=UserPublic, status_code=status.HTTP_201_CREATED)
 def register_user(payload: UserCreate, db: Session = Depends(get_db)):
     if get_user_by_username(db, payload.username):
         raise HTTPException(status_code=400, detail="Username already exists")

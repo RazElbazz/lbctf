@@ -13,14 +13,17 @@ def hash_password(password: str) -> str:
 def verify_password(plain: str, hashed: str) -> bool:
     return pwd_context.verify(plain, hashed)
 
-def create_user(db: Session, payload: UserCreate) -> User:
+def create_user(db: Session, user_in: UserCreate, is_superuser: bool = False):
     user = User(
-        username=payload.username,
-        password_hash=hash_password(payload.password),
+        username=user_in.username,
+        password_hash=hash_password(user_in.password),
+        is_superuser=is_superuser,
     )
     db.add(user)
-    db.flush()  # populate PK
+    db.commit()
+    db.refresh(user)
     return user
+
 
 def get_user_by_username(db: Session, username: str) -> User | None:
     stmt = select(User).where(User.username == username)

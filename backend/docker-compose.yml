@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  postgres:
+    image: postgres:16
+    container_name: lbctf-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: lbctf_db_user
+      POSTGRES_PASSWORD: n12in3o1j238912n308912n8
+      POSTGRES_DB: lbctf_db
+    ports:
+      - "5432:5432"     # exposes to host so backend app at 127.0.0.1:5432 can reach it
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+volumes:
+  pg_data:
