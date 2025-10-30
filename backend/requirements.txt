@@ -1,2 +1,6 @@
 fastapi[standard]
-sqlmodel
+pydantic
+pydantic-settings
+passlib[bcrypt]
+sqlalchemy>=2.0
+psycopg[binary]>=3.1
