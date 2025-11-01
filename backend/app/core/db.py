@@ -43,6 +43,6 @@ def init_db():
                 username=settings.FIRST_SUPERUSER,
                 password=settings.FIRST_SUPERUSER_PASSWORD,
             )
-            user = create_user(db, user_in, is_superuser=True)
+            create_user(db, user_in, is_superuser=True)
     finally:
         db.close()
